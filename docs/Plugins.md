@@ -65,8 +65,9 @@
   - [RabbitMQ Checks](#rabbitmq-checks)
   - [RedisDB](#redisdb)
   - [Riak](#riak)
-  - [SolidFire](#solidfire)
   - [SQLServer](#sqlserver)
+  - [SolidFire](#solidfire)
+  - [Spark](#spark)
   - [Supervisord](#supervisord)
   - [Swift Diags](#swift-diags)
   - [TCP Check](#tcp-check)
@@ -162,6 +163,7 @@ The following plugins are delivered via setup as part of the standard plugin che
 | redisdb |  |  |
 | riak |  |  |
 | solidfire |  | Track cluster health and use stats |
+| spark | | |
 | sqlserver |  |  |
 | supervisord |  |  |
 | swift_diags |  |  |
@@ -1723,6 +1725,65 @@ The SolidFire checks return the following metrics:
 | solidfire.deduplication_factor      | service=solidfire, cluster | Data deduplication factor, nonZeroBlocks / uniqueBlocks |
 | solidfire.compression_factor        | service=solidfire, cluster | Data compression factor, (uniqueBlocks * 4096) / uniqueBlocksUsedSpace |
 | solidfire.data_reduction_factor     | service=solidfire, cluster | Aggregate data reduction efficiency, thin_prov * dedup * compression |
+
+## Spark
+This plugin provides metrics for Spark history server. It consumes [Spark history server API](https://spark.apache.org/docs/latest/monitoring.html) retriving applications since last Agent check, or using `min_date` in configuration file. It executes `GET` requests on `http://<server-url>:18080/api/v1`.
+
+### Sample config
+```
+init_config:
+
+instances:
+  - history_server: http://spark-history.server1.com:18080/api/v1
+  - history_server: http://spark-history.server2.com:18080/api/v1
+    min_date: 2016-12-31T12:00 #Uses minData parameter on API
+```
+
+The Spark history server check return the following metrics
+
+| Metric Name                                       | Dimensions                                                     | Semantics                                                                                                     |
+| -----------                                       | ----------                                                     | ---------                                                                                                     |
+| spark.application.duration                        | app_id, history_server, service, component                     | Application execution duration                                                                                |
+| spark.application.job.duration                    | job_id, app_id, history_server, service, component             | Job execution duration                                                                                        |
+| spark.application.job.num_tasks                   | job_id, app_id, history_server, service, component             | Job number of tasks                                                                                           |
+| spark.application.job.num_active_tasks            | job_id, app_id, history_server, service, component             | Job quantity of active tasks                                                                                  |
+| spark.application.job.num_completed_tasks         | job_id, app_id, history_server, service, component             | Job quantity of completed tasks                                                                               |
+| spark.application.job.num_skipped_tasks           | job_id, app_id, history_server, service, component             | Job quantity of skipped tasks                                                                                 |
+| spark.application.job.num_failed_tasks            | job_id, app_id, history_server, service, component             | Job quantity of failed tasks                                                                                  |
+| spark.application.job.num_active_stages           | job_id, app_id, history_server, service, component             | Job quantity of active stages                                                                                 |
+| spark.application.job.num_completed_stages        | job_id, app_id, history_server, service, component             | Job quantity of completed staged                                                                              |
+| spark.application.job.num_skipped_stages          | job_id, app_id, history_server, service, component             | Job quantity of skipped stages                                                                                |
+| spark.application.job.num_failed_stages           | job_id, app_id, history_server, service, component             | Job quantity of failed stages                                                                                 |
+| spark.application.job.stage.num_complete_tasks    | job_id, app_id, history_server, service, component             | Stage quantity of complete tasks within a Job                                                                 |
+| spark.application.job.stage.input_bytes           | job_id, app_id, history_server, service, component             | Bytes read from Hadoop or from Spark storage                                                                  |
+| spark.application.job.stage.input_records         | job_id, app_id, history_server, service, component             | Records read from Hadoop or from Spark storage                                                                |
+| spark.application.job.stage.output_bytes          | job_id, app_id, history_server, service, component             | Bytes written to Hadoop or from Spark storage                                                                 |
+| spark.application.job.stage.output_records        | job_id, app_id, history_server, service, component             | Records written to Hadoop or from Spark storage                                                               |
+| spark.application.job.stage.num_active_tasks      | job_id, app_id, history_server, service, component             | Stage quantity of active tasks within a Job                                                                   |
+| spark.application.job.stage.num_failed_tasks      | job_id, app_id, history_server, service, component             | Stage quantity of failed tasks within a Job                                                                   |
+| spark.application.job.stage.executor_run_time     | job_id, app_id, history_server, service, component             | executor_run_time                                                                                             |
+| spark.application.job.stage.shuffle_read_bytes    | job_id, app_id, history_server, service, component             | Total shuffle bytes read (includes both data read locally and data read from remote executors)                |
+| spark.application.job.stage.shuffle_read_records  | job_id, app_id, history_server, service, component             | Total shuffle records read (includes both data read locally and data read from remote executors)              |
+| spark.application.job.stage.shuffle_write_bytes   | job_id, app_id, history_server, service, component             | Bytes written to disk in order to be read by a shuffle in a future stage                                      |
+| spark.application.job.stage.shuffle_write_records | job_id, app_id, history_server, service, component             | Records written to disk in order to be read by a shuffle in a future stage                                    |
+| spark.application.job.stage.memory_bytes_spilled  | job_id, app_id, history_server, service, component             | memory_bytes_spilled                                                                                          |
+| spark.application.job.stage.disk_bytes_spilled    | job_id, app_id, history_server, service, component             | disk_bytes_spilled                                                                                            |
+| spark.application.executor.memory_used            | executor_host_port, app_id, history_server, service, component | Memory used / total available memory for storage of data memory_used                                          |
+| spark.application.executor.rdd_blocks             | executor_host_port, app_id, history_server, service, component | rdd_blocks                                                                                                    |
+| spark.application.executor.disk_used              | executor_host_port, app_id, history_server, service, component | disk_used                                                                                                     |
+| spark.application.executor.active_tasks           | executor_host_port, app_id, history_server, service, component | Quantity of active tasks within a Executor                                                                    |
+| spark.application.executor.failed_tasks           | executor_host_port, app_id, history_server, service, component | Quantity of failed tasks within a Executor                                                                    |
+| spark.application.executor.completed_tasks        | executor_host_port, app_id, history_server, service, component | Total of completed tasks within a Executor                                                                    |
+| spark.application.executor.total_tasks            | executor_host_port, app_id, history_server, service, component | Total of tasks within a Executor                                                                              |
+| spark.application.executor.total_duration         | executor_host_port, app_id, history_server, service, component | total_duration                                                                                                |
+| spark.application.executor.total_input_bytes      | executor_host_port, app_id, history_server, service, component | Bytes read from Hadoop or from Spark storage                                                                  |
+| spark.application.executor.total_shuffle_read     | executor_host_port, app_id, history_server, service, component | Total shuffle bytes and records read (includes both data read locally and data read from remote executors)    |
+| spark.application.executor.total_shuffle_write    | executor_host_port, app_id, history_server, service, component | Total shuffle bytes and records written (includes both data read locally and data read from remote executors) |
+| spark.application.executor.max_memory             | executor_host_port, app_id, history_server, service, component | max_memory                                                                                                    |
+| spark.application.storage.num_partitions          | storage_name, app_id, history_server, service, component       | num_partitions                                                                                                |
+| spark.application.storage.num_cached_partitions   | storage_name, app_id, history_server, service, component       | num_cached_partitions                                                                                         |
+| spark.application.storage.memory_used             | storage_name, app_id, history_server, service, component       | Memory used / total available memory for storage of data memory_used                                          |
+| spark.application.storage.disk_used               | storage_name, app_id, history_server, service, component       | Disk used for storage data                                                                                    |
 
 ## SQLServer
 See [the example configuration](https://github.com/openstack/monasca-agent/blob/master/conf.d/sqlserver.yaml.example) for how to configure the SQLServer plugin.

@@ -1,0 +1,352 @@
+{
+  "applications": [
+    {
+      "id": "application_1473948406615_0046",
+      "name": "FP-Twidd",
+      "attempts": [
+        {
+          "completed": true,
+          "endTime": "2016-09-20T02:27:08.859GMT",
+          "sparkUser": "ubuntu",
+          "startTime": "2016-09-20T02:22:53.925GMT"
+        }
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "completionTime": "2016-09-20T02:27:08.061GMT",
+      "jobId": 2,
+      "name": "saveAsTextFile at Twidd.scala:335",
+      "numActiveStages": 0,
+      "numActiveTasks": 0,
+      "numCompletedStages": 3,
+      "numCompletedTasks": 384,
+      "numFailedStages": 0,
+      "numFailedTasks": 0,
+      "numSkippedStages": 0,
+      "numSkippedTasks": 384,
+      "numTasks": 384,
+      "stageIds": [
+        5,
+        3,
+        4
+      ],
+      "status": "SUCCEEDED",
+      "submissionTime": "2016-09-20T02:26:27.879GMT"
+    },
+    {
+      "completionTime": "2016-09-20T02:26:27.704GMT",
+      "jobId": 1,
+      "name": "collectAsMap at Twidd.scala:302",
+      "numActiveStages": 0,
+      "numActiveTasks": 0,
+      "numCompletedStages": 2,
+      "numCompletedTasks": 256,
+      "numFailedStages": 0,
+      "numFailedTasks": 0,
+      "numSkippedStages": 0,
+      "numSkippedTasks": 256,
+      "numTasks": 256,
+      "stageIds": [
+        1,
+        2
+      ],
+      "status": "SUCCEEDED",
+      "submissionTime": "2016-09-20T02:24:48.344GMT"
+    },
+    {
+      "completionTime": "2016-09-20T02:24:48.251GMT",
+      "jobId": 0,
+      "name": "count at Twidd.scala:287",
+      "numActiveStages": 0,
+      "numActiveTasks": 0,
+      "numCompletedStages": 1,
+      "numCompletedTasks": 128,
+      "numFailedStages": 0,
+      "numFailedTasks": 0,
+      "numSkippedStages": 0,
+      "numSkippedTasks": 128,
+      "numTasks": 128,
+      "stageIds": [
+        0
+      ],
+      "status": "SUCCEEDED",
+      "submissionTime": "2016-09-20T02:23:11.630GMT"
+    }
+  ],
+  "stages": [
+    {
+      "accumulatorUpdates": [
+        {
+          "id": 6,
+          "name": "peakExecutionMemory",
+          "value": "38139010"
+        }
+      ],
+      "attemptId": 0,
+      "details": "org.apache.spark.rdd.RDD.saveAsTextFile(RDD.scala:1409)\nfim.fptree.Twidd$.run(Twidd.scala:335)\nfim.fptree.Twidd$.main(Twidd.scala:107)\nfim.fptree.Twidd.main(Twidd.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:674)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:180)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:205)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:120)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
+      "diskBytesSpilled": 0,
+      "executorRunTime": 26806,
+      "inputBytes": 0,
+      "inputRecords": 0,
+      "memoryBytesSpilled": 0,
+      "name": "saveAsTextFile at Twidd.scala:335",
+      "numActiveTasks": 0,
+      "numCompleteTasks": 128,
+      "numFailedTasks": 0,
+      "outputBytes": 298,
+      "outputRecords": 23,
+      "schedulingPool": "default",
+      "shuffleReadBytes": 6910722,
+      "shuffleReadRecords": 39737,
+      "shuffleWriteBytes": 0,
+      "shuffleWriteRecords": 0,
+      "stageId": 5,
+      "status": "COMPLETE"
+    },
+    {
+      "accumulatorUpdates": [
+        {
+          "id": 5,
+          "name": "peakExecutionMemory",
+          "value": "64639673"
+        }
+      ],
+      "attemptId": 0,
+      "details": "org.apache.spark.rdd.RDD.flatMap(RDD.scala:326)\nfim.fptree.Twidd$.rhoTrees(Twidd.scala:203)\nfim.fptree.Twidd$.run(Twidd.scala:319)\nfim.fptree.Twidd$.main(Twidd.scala:107)\nfim.fptree.Twidd.main(Twidd.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:674)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:180)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:205)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:120)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
+      "diskBytesSpilled": 0,
+      "executorRunTime": 50178,
+      "inputBytes": 0,
+      "inputRecords": 0,
+      "memoryBytesSpilled": 0,
+      "name": "flatMap at Twidd.scala:203",
+      "numActiveTasks": 0,
+      "numCompleteTasks": 128,
+      "numFailedTasks": 0,
+      "outputBytes": 0,
+      "outputRecords": 0,
+      "schedulingPool": "default",
+      "shuffleReadBytes": 39414650,
+      "shuffleReadRecords": 333011,
+      "shuffleWriteBytes": 6927228,
+      "shuffleWriteRecords": 39737,
+      "stageId": 4,
+      "status": "COMPLETE"
+    },
+    {
+      "accumulatorUpdates": [],
+      "attemptId": 0,
+      "details": "org.apache.spark.rdd.RDD.flatMap(RDD.scala:326)\nfim.fptree.Twidd$.muTrees(Twidd.scala:165)\nfim.fptree.Twidd$.run(Twidd.scala:312)\nfim.fptree.Twidd$.main(Twidd.scala:107)\nfim.fptree.Twidd.main(Twidd.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:674)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:180)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:205)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:120)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
+      "diskBytesSpilled": 0,
+      "executorRunTime": 500678,
+      "inputBytes": 5241654306,
+      "inputRecords": 233259498,
+      "memoryBytesSpilled": 0,
+      "name": "flatMap at Twidd.scala:165",
+      "numActiveTasks": 0,
+      "numCompleteTasks": 128,
+      "numFailedTasks": 0,
+      "outputBytes": 0,
+      "outputRecords": 0,
+      "schedulingPool": "default",
+      "shuffleReadBytes": 0,
+      "shuffleReadRecords": 0,
+      "shuffleWriteBytes": 39558227,
+      "shuffleWriteRecords": 333011,
+      "stageId": 3,
+      "status": "COMPLETE"
+    },
+    {
+      "accumulatorUpdates": [
+        {
+          "id": 3,
+          "name": "peakExecutionMemory",
+          "value": "552482386"
+        }
+      ],
+      "attemptId": 0,
+      "details": "org.apache.spark.rdd.PairRDDFunctions.collectAsMap(PairRDDFunctions.scala:685)\nfim.fptree.Twidd$.run(Twidd.scala:302)\nfim.fptree.Twidd$.main(Twidd.scala:107)\nfim.fptree.Twidd.main(Twidd.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:674)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:180)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:205)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:120)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
+      "diskBytesSpilled": 0,
+      "executorRunTime": 162596,
+      "inputBytes": 0,
+      "inputRecords": 0,
+      "memoryBytesSpilled": 0,
+      "name": "collectAsMap at Twidd.scala:302",
+      "numActiveTasks": 0,
+      "numCompleteTasks": 128,
+      "numFailedTasks": 0,
+      "outputBytes": 0,
+      "outputRecords": 0,
+      "schedulingPool": "default",
+      "shuffleReadBytes": 654868427,
+      "shuffleReadRecords": 154216671,
+      "shuffleWriteBytes": 0,
+      "shuffleWriteRecords": 0,
+      "stageId": 2,
+      "status": "COMPLETE"
+    },
+    {
+      "accumulatorUpdates": [
+        {
+          "id": 2,
+          "name": "peakExecutionMemory",
+          "value": "8653401034"
+        }
+      ],
+      "attemptId": 0,
+      "details": "org.apache.spark.rdd.RDD.flatMap(RDD.scala:326)\nfim.fptree.Twidd$.run(Twidd.scala:297)\nfim.fptree.Twidd$.main(Twidd.scala:107)\nfim.fptree.Twidd.main(Twidd.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:674)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:180)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:205)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:120)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
+      "diskBytesSpilled": 0,
+      "executorRunTime": 1276600,
+      "inputBytes": 5241654306,
+      "inputRecords": 233259498,
+      "memoryBytesSpilled": 0,
+      "name": "flatMap at Twidd.scala:297",
+      "numActiveTasks": 0,
+      "numCompleteTasks": 128,
+      "numFailedTasks": 0,
+      "outputBytes": 0,
+      "outputRecords": 0,
+      "schedulingPool": "default",
+      "shuffleReadBytes": 0,
+      "shuffleReadRecords": 0,
+      "shuffleWriteBytes": 654868427,
+      "shuffleWriteRecords": 154216671,
+      "stageId": 1,
+      "status": "COMPLETE"
+    },
+    {
+      "accumulatorUpdates": [],
+      "attemptId": 0,
+      "details": "org.apache.spark.rdd.RDD.count(RDD.scala:1125)\nfim.fptree.Twidd$.run(Twidd.scala:287)\nfim.fptree.Twidd$.main(Twidd.scala:107)\nfim.fptree.Twidd.main(Twidd.scala)\nsun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\nsun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\nsun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\njava.lang.reflect.Method.invoke(Method.java:606)\norg.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:674)\norg.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:180)\norg.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:205)\norg.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:120)\norg.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)",
+      "diskBytesSpilled": 0,
+      "executorRunTime": 1460170,
+      "inputBytes": 8389861919,
+      "inputRecords": 233259498,
+      "memoryBytesSpilled": 0,
+      "name": "count at Twidd.scala:287",
+      "numActiveTasks": 0,
+      "numCompleteTasks": 128,
+      "numFailedTasks": 0,
+      "outputBytes": 0,
+      "outputRecords": 0,
+      "schedulingPool": "default",
+      "shuffleReadBytes": 0,
+      "shuffleReadRecords": 0,
+      "shuffleWriteBytes": 0,
+      "shuffleWriteRecords": 0,
+      "stageId": 0,
+      "status": "COMPLETE"
+    }
+  ],
+  "executors": [
+    {
+      "activeTasks": 0,
+      "completedTasks": 185,
+      "diskUsed": 0,
+      "executorLogs": {
+        "stderr": "http://slave1:8042/node/containerlogs/container_1473948406615_0046_01_000003/ubuntu/stderr?start=-4096",
+        "stdout": "http://slave1:8042/node/containerlogs/container_1473948406615_0046_01_000003/ubuntu/stdout?start=-4096"
+      },
+      "failedTasks": 0,
+      "hostPort": "slave1:56733",
+      "id": "2",
+      "maxMemory": 2778778828,
+      "memoryUsed": 1351350333,
+      "rddBlocks": 33,
+      "totalDuration": 912552,
+      "totalInputBytes": 4865754200,
+      "totalShuffleRead": 122364074,
+      "totalShuffleWrite": 180738492,
+      "totalTasks": 185
+    },
+    {
+      "activeTasks": 0,
+      "completedTasks": 0,
+      "diskUsed": 0,
+      "executorLogs": {},
+      "failedTasks": 0,
+      "hostPort": "10.82.76.2:58704",
+      "id": "driver",
+      "maxMemory": 3333968363,
+      "memoryUsed": 0,
+      "rddBlocks": 0,
+      "totalDuration": 0,
+      "totalInputBytes": 0,
+      "totalShuffleRead": 0,
+      "totalShuffleWrite": 0,
+      "totalTasks": 0
+    },
+    {
+      "activeTasks": 0,
+      "completedTasks": 200,
+      "diskUsed": 0,
+      "executorLogs": {
+        "stderr": "http://slave4:8042/node/containerlogs/container_1473948406615_0046_01_000002/ubuntu/stderr?start=-4096",
+        "stdout": "http://slave4:8042/node/containerlogs/container_1473948406615_0046_01_000002/ubuntu/stdout?start=-4096"
+      },
+      "failedTasks": 0,
+      "hostPort": "slave4:38093",
+      "id": "1",
+      "maxMemory": 2778778828,
+      "memoryUsed": 1310417289,
+      "rddBlocks": 32,
+      "totalDuration": 889529,
+      "totalInputBytes": 4718444862,
+      "totalShuffleRead": 124195353,
+      "totalShuffleWrite": 175396413,
+      "totalTasks": 200
+    },
+    {
+      "activeTasks": 0,
+      "completedTasks": 198,
+      "diskUsed": 0,
+      "executorLogs": {
+        "stderr": "http://slave3:8042/node/containerlogs/container_1473948406615_0046_01_000005/ubuntu/stderr?start=-4096",
+        "stdout": "http://slave3:8042/node/containerlogs/container_1473948406615_0046_01_000005/ubuntu/stdout?start=-4096"
+      },
+      "failedTasks": 0,
+      "hostPort": "slave3:43914",
+      "id": "4",
+      "maxMemory": 2778778828,
+      "memoryUsed": 1351413126,
+      "rddBlocks": 33,
+      "totalDuration": 881891,
+      "totalInputBytes": 4865683935,
+      "totalShuffleRead": 141327956,
+      "totalShuffleWrite": 180789998,
+      "totalTasks": 198
+    },
+    {
+      "activeTasks": 0,
+      "completedTasks": 185,
+      "diskUsed": 0,
+      "executorLogs": {
+        "stderr": "http://slave6:8042/node/containerlogs/container_1473948406615_0046_01_000004/ubuntu/stderr?start=-4096",
+        "stdout": "http://slave6:8042/node/containerlogs/container_1473948406615_0046_01_000004/ubuntu/stdout?start=-4096"
+      },
+      "failedTasks": 0,
+      "hostPort": "slave6:46688",
+      "id": "3",
+      "maxMemory": 2778778828,
+      "memoryUsed": 1228473558,
+      "rddBlocks": 30,
+      "totalDuration": 841443,
+      "totalInputBytes": 4423287534,
+      "totalShuffleRead": 138040013,
+      "totalShuffleWrite": 164428979,
+      "totalTasks": 185
+    }
+  ],
+  "storages": [
+    {
+      "diskUsed": 0,
+      "id": 2,
+      "memoryUsed": 5241654306,
+      "name": "transactions_rdd",
+      "numCachedPartitions": 128,
+      "numPartitions": 128,
+      "storageLevel": "Memory Serialized 1x Replicated"
+    }
+  ]
+}

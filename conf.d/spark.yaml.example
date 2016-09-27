@@ -1,0 +1,5 @@
+init_config:
+
+instances:
+  - history_server: http://spark-history.mycluster.com.br:18080/api/v1
+  # min_date: 2016-12-24T12:30:01
